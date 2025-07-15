@@ -1,0 +1,12 @@
+{
+    "name": "theme",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+      "build": "tailwindcss -i ./static_src/styles.css -o ../static/css/styles.css --watch"
+    },
+    "devDependencies": {
+      "tailwindcss": "^3.3.2"
+    }
+  }
+  
