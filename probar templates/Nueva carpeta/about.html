@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sobre Nosotros | Music Club</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Config (Paleta Premium) -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              carbon: "#1C1C1C",
+              gold: "#CDA434",
+              copper: "#B87333",
+              offwhite: "#FAFAFA",
+              warmgray: "#E0E0E0",
+              petrol: "#264653",
+            },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="bg-carbon text-offwhite font-sans">
+
+    <!-- 🌟 Header -->
+    <header>
+        <nav class="flex justify-between items-center px-8 py-5 bg-carbon border-b border-gold">
+            <!-- Logo -->
+            <div class="text-2xl font-bold text-gold tracking-wide">
+                Music Club
+            </div>
+            <!-- Navigation -->
+            <ul class="flex gap-8 text-warmgray text-lg">
+                <li><a href="index.html" class="hover:text-gold transition-colors duration-300">Inicio</a></li>
+                <li><a href="albums.html" class="hover:text-gold transition-colors duration-300">Álbumes</a></li>
+                <li><a href="about.html" class="text-gold">About</a></li>
+                <li><a href="login.html" class="hover:text-gold transition-colors duration-300">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 🌟 About Section -->
+    <main>
+        <section class="py-16 px-6 md:px-20">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                
+                <!-- Text content -->
+                <div class="text-justify">
+                    <h1 class="text-5xl md:text-6xl font-light text-gold mb-8">Sobre <span class="font-medium">Music Club</span></h1>
+                    <p class="text-warmgray text-lg leading-relaxed mb-6">
+                        En <span class="text-gold font-medium">Music Club</span> creemos que la música no solo se escucha: se vive. Nacimos en 2020 con la misión de crear un espacio único para los amantes del vinilo, los coleccionistas de CDs y todos aquellos que sienten pasión por descubrir nuevos sonidos.
+                    </p>
+                    <p class="text-warmgray text-lg leading-relaxed mb-6">
+                        Ofrecemos una cuidada selección de álbumes de todos los géneros: desde los clásicos eternos hasta las últimas tendencias indie y ediciones especiales difíciles de encontrar. Aquí cada estantería cuenta una historia y cada álbum es una joya esperando ser descubierta.
+                    </p>
+                    <p class="text-warmgray text-lg leading-relaxed">
+                        Ya sea que busques esa edición limitada o quieras simplemente perderte entre buena música, en <span class="text-gold font-medium">Music Club</span> encontrarás un equipo de melómanos listo para acompañarte.
+                    </p>
+                    <a href="albums.html"
+                       class="inline-block mt-8 rounded-lg border border-gold px-6 py-3 text-gold font-medium tracking-wide transition-colors duration-300 hover:bg-gold hover:text-carbon">
+                        Explora nuestros álbumes
+                    </a>
+                </div>
+
+                <!-- Image -->
+                <div class="rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80"
+                         alt="Interior de la tienda Music Club"
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 🌟 Footer -->
+    <footer class="bg-carbon border-t border-gold text-center py-6 text-warmgray text-sm">
+        &copy; 2025 Music Club. Todos los derechos reservados.
+    </footer>
+
+</body>
+</html>
