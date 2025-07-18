@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,11 +30,11 @@
   </style>
 </head>
 <body class="bg-[#1C1C1C] text-[#FAFAFA] min-h-screen flex items-center justify-center p-4 relative">
-  <button class="absolute border border-[#CDA434] p-2 pt-1 px-3 rounded-[25px] font-black top-5 left-5 hover:bg-[#CDA434] transit " id="back-button">&leftarrow;</button>
+  <button class="absolute border border-[#CDA434] p-2 pt-1 px-3 rounded-[25px] font-black top-5 left-5 hover:bg-[#CDA434] transit " onclick="history.back() || window.location.href='/'">&leftarrow;</button>
   <div class="auth-container bg-[#1C1C1C] border border-[#424242] rounded-xl shadow-2xl w-full max-w-4xl h-[500px] relative">
     <!-- Contenedor de la foto -->
     <div class="photo-container absolute top-0 w-1/2 h-full z-20 bg-[#CDA434] flex items-center justify-center">
-      <img src="{% static 'usuarios/fondo.jpg' %}" id="img-login" class="">
+      <img src="fondo.jpg" id="img-login" class="">
     </div>
 
     <!-- Contenedor del formulario -->
@@ -43,14 +42,13 @@
       <!-- Formulario de Login -->
       <div id="login-form" class="w-full">
         <h2 class="text-3xl text-center font-bold text-[#FAFAFA] mb-6">LOGIN</h2>
-        <form action="{% url 'login' %}" method="POST">
-          {% csrf_token %}
+        <form>
           <div class="mb-4">
-            <input type="text" id="login-email" placeholder="username" name="username"
+            <input type="email" id="login-email" placeholder="email@gmail.com"
               class="w-full px-3 py-2 border border-[#424242] bg-[#1C1C1C]  placeholder-[#888888] rounded-md focus:outline-none focus:ring-2 focus:ring-[#264653]" />
           </div>
           <div class="mb-6">
-            <input type="password" id="login-password" placeholder="***********" name="password"
+            <input type="password" id="login-password" placeholder="***********"
               class="w-full px-3 py-2 border border-[#424242] bg-[#1C1C1C] text-[#FAFAFA] placeholder-[#888888] rounded-md focus:outline-none focus:ring-2 focus:ring-[#264653]" />
           </div>
           <button type="submit"
@@ -65,18 +63,17 @@
       <!-- Formulario de Registro -->
       <div id="register-form" class="w-full hidden">
         <h2 class="text-3xl text-center font-bold text-[#FAFAFA] mb-6 capitalize">sign up</h2>
-        <form action="{% url 'register' %}" method="POST">
-          {% csrf_token %}
+        <form>
           <div class="mb-4">
-            <input type="text" id="register-name" placeholder="username" name="username"
+            <input type="text" id="register-name" placeholder="username" name="Username"
               class="w-full px-3 py-2 border border-[#424242] bg-[#1C1C1C] text-[#FAFAFA] placeholder-[#888888] rounded-md focus:outline-none focus:ring-2 focus:ring-[#264653]" />
           </div>
           <div class="mb-4">
-            <input type="email" id="register-email" placeholder="Email" name="email"
+            <input type="email" id="register-email" placeholder="Email"
               class="w-full px-3 py-2 border border-[#424242] bg-[#1C1C1C] text-[#FAFAFA] placeholder-[#888888] rounded-md focus:outline-none focus:ring-2 focus:ring-[#264653]" />
           </div>
           <div class="mb-6">
-            <input type="password" id="register-password" placeholder="***********" name="password"
+            <input type="password" id="register-password" placeholder="***********"
               class="w-full px-3 py-2 border border-[#424242] bg-[#1C1C1C] text-[#FAFAFA] placeholder-[#888888] rounded-md focus:outline-none focus:ring-2 focus:ring-[#264653]" />
           </div>
           <button type="submit"
@@ -98,12 +95,6 @@
       const loginForm = document.getElementById('login-form');
       const registerForm = document.getElementById('register-form');
       const imgLogin = document.getElementById("img-login");
-      const back_button = document.getElementById("back-button");
-
-      back_button.addEventListener('click', function (e) {
-        e.preventDefault();
-        window.location.href='{% url "index" %}';
-      })
 
       showRegister.addEventListener('click', function (e) {
         e.preventDefault();
@@ -147,6 +138,7 @@
           loginForm.classList.remove('hidden');
           loginForm.classList.add("animate__animated", "animate__fadeIn");
           // Cambiar imagen de fondo si aplica
+          imgLogin.src = "fondo.jpg";
         }, 900); // 500ms para fadeOut
       });
     });

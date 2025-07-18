@@ -35,10 +35,10 @@
             </div>
             <!-- Navigation -->
             <ul class="flex gap-8 text-warmgray text-lg">
-                <li><a href="index.html" class="hover:text-gold transition-colors duration-300">Inicio</a></li>
-                <li><a href="albums.html" class="hover:text-gold transition-colors duration-300">Álbumes</a></li>
-                <li><a href="about.html" class="text-gold">About</a></li>
-                <li><a href="login.html" class="hover:text-gold transition-colors duration-300">Login</a></li>
+                <li><a href="{% url 'index' %}" class="hover:text-gold transition-colors duration-300">Inicio</a></li>
+                <li><a href="" class="hover:text-gold transition-colors duration-300">Álbumes</a></li>
+                <li><a href="{% url 'about' %}" class="text-gold">About</a></li>
+                <li><a href="{% url 'login' %}" class="hover:text-gold transition-colors duration-300">Login</a></li>
             </ul>
         </nav>
     </header>
@@ -60,7 +60,7 @@
                     <p class="text-warmgray text-lg leading-relaxed">
                         Ya sea que busques esa edición limitada o quieras simplemente perderte entre buena música, en <span class="text-gold font-medium">Music Club</span> encontrarás un equipo de melómanos listo para acompañarte.
                     </p>
-                    <a href="albums.html"
+                    <a href=""
                        class="inline-block mt-8 rounded-lg border border-gold px-6 py-3 text-gold font-medium tracking-wide transition-colors duration-300 hover:bg-gold hover:text-carbon">
                         Explora nuestros álbumes
                     </a>

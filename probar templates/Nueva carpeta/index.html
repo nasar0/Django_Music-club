@@ -1,147 +1,72 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Music club</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <style>
-    .auth-container {
-      overflow: hidden;
-      position: relative;
-    }
-    .photo-container, .form-container {
-      transition: all 0.9s ease-in-out;
-    }
-
-    .photo-container {
-      right: 0;
-    }
-    .form-container {
-      left: 0;
-    }
-    .register-mode .photo-container {
-      right: 50%;
-    }
-    .register-mode .form-container {
-      left: 50%;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Club</title>
+    <!-- ✅ Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ✅ Configuración de colores personalizados -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              carbon: "#1C1C1C",
+              gold: "#CDA434",
+              copper: "#B87333",
+              offwhite: "#FAFAFA",
+              warmgray: "#E0E0E0",
+              petrol: "#264653",
+            },
+          },
+        },
+      };
+    </script>
 </head>
-<body class="bg-[#1C1C1C] text-[#FAFAFA] min-h-screen flex items-center justify-center p-4 relative">
-  <button class="absolute border border-[#CDA434] p-2 pt-1 px-3 rounded-[25px] font-black top-5 left-5 hover:bg-[#CDA434] transit " onclick="history.back() || window.location.href='/'">&leftarrow;</button>
-  <div class="auth-container bg-[#1C1C1C] border border-[#424242] rounded-xl shadow-2xl w-full max-w-4xl h-[500px] relative">
-    <!-- Contenedor de la foto -->
-    <div class="photo-container absolute top-0 w-1/2 h-full z-20 bg-[#CDA434] flex items-center justify-center">
-      <img src="fondo.jpg" id="img-login" class="">
-    </div>
+<body class="bg-carbon text-offwhite font-sans">
+    <!-- 🌟 Header -->
+    <header>
+        <nav class="flex justify-between items-center px-8 py-5 bg-carbon border-b border-gold">
+            <!-- Logo -->
+            <div class="text-2xl font-bold text-gold tracking-wide">
+                Music Club
+            </div>
+            <!-- Navigation -->
+            <ul class="flex gap-8 text-warmgray text-lg">
+                <li><a href="#" class="hover:text-gold transition-colors duration-300">Álbumes</a></li>
+                <li><a href="#" class="hover:text-gold transition-colors duration-300">About</a></li>
+                <li><a href="#" class="hover:text-gold transition-colors duration-300">Login</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Contenedor del formulario -->
-    <div class="form-container absolute top-0 w-1/2 h-full p-8 flex items-center">
-      <!-- Formulario de Login -->
-      <div id="login-form" class="w-full">
-        <h2 class="text-3xl text-center font-bold text-[#FAFAFA] mb-6">LOGIN</h2>
-        <form>
-          <div class="mb-4">
-            <input type="email" id="login-email" placeholder="email@gmail.com"
-              class="w-full px-3 py-2 border border-[#424242] bg-[#1C1C1C]  placeholder-[#888888] rounded-md focus:outline-none focus:ring-2 focus:ring-[#264653]" />
-          </div>
-          <div class="mb-6">
-            <input type="password" id="login-password" placeholder="***********"
-              class="w-full px-3 py-2 border border-[#424242] bg-[#1C1C1C] text-[#FAFAFA] placeholder-[#888888] rounded-md focus:outline-none focus:ring-2 focus:ring-[#264653]" />
-          </div>
-          <button type="submit"
-            class="w-full bg-[#CDA434] text-[#1C1C1C] py-2 px-4 rounded-md hover:bg-[#B87333] transition duration-300 mb-4 font-medium tracking-wide">Access Account</button>
-          <p class="text-center text-[#E0E0E0]">
-            ¿No tienes cuenta?
-            <a href="#" id="show-register" class="text-[#8a743686] hover:underline font-medium">Register</a>
-          </p>
-        </form>
-      </div>
+    <!-- 🌟 Main -->
+    <main>
+        <!-- Hero Section -->
+        <section class="flex flex-col justify-center items-center h-[60vh] text-center">
+            <h1 class="text-5xl md:text-7xl font-light capitalize">music club</h1>
+            <p class="mt-4 text-warmgray text-lg md:text-xl">Explora los mejores álbumes de todos los tiempos</p>
+        </section>
 
-      <!-- Formulario de Registro -->
-      <div id="register-form" class="w-full hidden">
-        <h2 class="text-3xl text-center font-bold text-[#FAFAFA] mb-6 capitalize">sign up</h2>
-        <form>
-          <div class="mb-4">
-            <input type="text" id="register-name" placeholder="username" name="Username"
-              class="w-full px-3 py-2 border border-[#424242] bg-[#1C1C1C] text-[#FAFAFA] placeholder-[#888888] rounded-md focus:outline-none focus:ring-2 focus:ring-[#264653]" />
-          </div>
-          <div class="mb-4">
-            <input type="email" id="register-email" placeholder="Email"
-              class="w-full px-3 py-2 border border-[#424242] bg-[#1C1C1C] text-[#FAFAFA] placeholder-[#888888] rounded-md focus:outline-none focus:ring-2 focus:ring-[#264653]" />
-          </div>
-          <div class="mb-6">
-            <input type="password" id="register-password" placeholder="***********"
-              class="w-full px-3 py-2 border border-[#424242] bg-[#1C1C1C] text-[#FAFAFA] placeholder-[#888888] rounded-md focus:outline-none focus:ring-2 focus:ring-[#264653]" />
-          </div>
-          <button type="submit"
-            class="w-full bg-[#CDA434] text-[#1C1C1C] py-2 px-4 rounded-md hover:bg-[#B87333] transition duration-300 mb-4 font-medium tracking-wide">Register</button>
-          <p class="text-center text-[#E0E0E0]">
-            ¿Ya tienes cuenta?
-            <a href="#" id="show-login" class="text-[#8a743686] hover:underline font-medium">Login</a> 
-          </p>
-        </form>
-      </div>
-    </div>
-  </div>
+        <!-- Featured Albums Section -->
+        <section class="py-16 px-6 md:px-16 bg-[#121212]">
+            <h2 class="text-center text-3xl md:text-4xl font-light mb-10 capitalize text-gold">
+                los mejores álbumes de 2025
+            </h2>
+            <!-- Example Album Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <div class="bg-carbon border border-warmgray rounded-lg p-4 hover:border-gold transition">
+                    <h3 class="text-xl mb-2">Álbum 1</h3>
+                    <p class="text-warmgray">Artista destacado</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const authContainer = document.querySelector('.auth-container');
-      const showRegister = document.getElementById('show-register');
-      const showLogin = document.getElementById('show-login');
-      const loginForm = document.getElementById('login-form');
-      const registerForm = document.getElementById('register-form');
-      const imgLogin = document.getElementById("img-login");
-
-      showRegister.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        // Activar modo registro
-        authContainer.classList.add('register-mode');
-
-        // Animar salida login
-        loginForm.classList.remove("animate__fadeIn");
-        loginForm.classList.add("animate__animated", "animate__fadeOut");
-
-        setTimeout(()=>{
-          loginForm.classList.add('hidden');
-          loginForm.classList.remove("animate__animated", "animate__fadeOut");
-        },500)
-        
-        setTimeout(function () {
-          // Mostrar y animar registro
-          registerForm.classList.remove('hidden');
-          registerForm.classList.add("animate__animated", "animate__fadeIn");
-        }, 900); // 500ms = duración típica de fadeOut
-      });
-
-      showLogin.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        // Quitar modo registro
-        authContainer.classList.remove('register-mode');
-
-        // Animar salida registro
-        registerForm.classList.remove("animate__fadeIn");
-        registerForm.classList.add("animate__animated", "animate__fadeOut");
-
-        // Esperar a que termine la animación antes de ocultar
-        setTimeout(()=>{
-          registerForm.classList.add('hidden');
-          registerForm.classList.remove("animate__animated", "animate__fadeOut");
-        },500)
-        setTimeout(function () {
-          // Mostrar y animar login
-          loginForm.classList.remove('hidden');
-          loginForm.classList.add("animate__animated", "animate__fadeIn");
-          // Cambiar imagen de fondo si aplica
-          imgLogin.src = "fondo.jpg";
-        }, 900); // 500ms para fadeOut
-      });
-    });
-  </script>
+    <!-- 🌟 Footer -->
+    <footer class="mt-12 bg-carbon border-t border-gold text-center py-6 text-warmgray text-sm">
+        &copy; 2025 Music Club. Todos los derechos reservados.
+    </footer>
 </body>
 </html>

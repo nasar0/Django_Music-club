@@ -1,39 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Music Club</title>
-     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- ✅ Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ✅ Configuración de colores personalizados -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              carbon: "#1C1C1C",
+              gold: "#CDA434",
+              copper: "#B87333",
+              offwhite: "#FAFAFA",
+              warmgray: "#E0E0E0",
+              petrol: "#264653",
+            },
+          },
+        },
+      };
+    </script>
 </head>
-<body class="bg-slate-500 text-white">
+<body class="bg-carbon text-offwhite font-sans">
+    <!-- 🌟 Header -->
     <header>
-        <nav class="flex justify-around py-5 bg-gray-800">
-            <div>
-                <a href="#">Logo</a>
+        <nav class="flex justify-between items-center px-8 py-5 bg-carbon border-b border-gold">
+            <!-- Logo -->
+            <div class="text-2xl font-bold text-gold tracking-wide">
+                <a href="{% url 'index' %}">Music Club</a>
             </div>
-            <div>
-                <ul class="flex gap-5 bg-">
-                    <li><a href="#">Albumes</a></li>
-                    <li><a href="#">About</a></li>
-                    <li>
-                        {% if user.is_authenticated %}
-                            <a href="{% url 'logout' %}">Cerrar session</a>
-                        {% else %}
-                            <a href="{% url 'login' %}">Iniciar sesión</a>
-                        {% endif %}
-                    </li>
-                </ul>
-            </div>
+            <!-- Navigation -->
+            <ul class="flex gap-8 text-warmgray text-lg">
+                <li><a href="#" class="hover:text-gold transition-colors duration-300">Álbumes</a></li>
+                <li><a href="{% url 'about' %}" class="hover:text-gold transition-colors duration-300">About</a></li>
+                {% if not user.is_authenticated %}
+                <li><a href="{% url 'login' %}" class="hover:text-gold transition-colors duration-300">Login</a></li>
+                {% else %}
+                <li><a href="{% url 'logout' %}" class="hover:text-gold transition-colors duration-300">Logout</a></li>
+                {% endif %}
+            </ul>
         </nav>
     </header>
+
+    <!-- 🌟 Main -->
     <main>
-        <section class="flex justify-center items-center flex-col h-[40vh]">
-            <h1 class="text-[4rem] capitalize">music club</h1>
+        <!-- Hero Section -->
+        <section class="flex flex-col justify-center items-center h-[60vh] text-center">
+            <h1 class="text-5xl md:text-7xl font-light capitalize">music club</h1>
+            <p class="mt-4 text-warmgray text-lg md:text-xl">Explora los mejores álbumes de todos los tiempos</p>
+        </section>
+
+        <!-- Featured Albums Section -->
+        <section class="py-16 px-6 md:px-16 bg-[#121212]">
+            <h2 class="text-center text-3xl md:text-4xl font-light mb-10 capitalize text-gold">
+                los mejores álbumes de 2025
+            </h2>
+            <!-- Example Album Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <div class="bg-carbon border border-warmgray rounded-lg p-4 hover:border-gold transition">
+                    <h3 class="text-xl mb-2">Álbum 1</h3>
+                    <p class="text-warmgray">Artista destacado</p>
+                </div>
+            </div>
         </section>
     </main>
-    <footer>
-        <p>Todos los derechos reservados</p>
+
+    <!-- 🌟 Footer -->
+    <footer class="mt-12 bg-carbon border-t border-gold text-center py-6 text-warmgray text-sm">
+        &copy; 2025 Music Club. Todos los derechos reservados.
     </footer>
 </body>
 </html>
