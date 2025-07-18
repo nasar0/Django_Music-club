@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil | Music Club</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Config (Paleta Premium) -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              carbon: "#1C1C1C",
+              gold: "#CDA434",
+              copper: "#B87333",
+              offwhite: "#FAFAFA",
+              warmgray: "#E0E0E0",
+              petrol: "#264653",
+            },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="bg-carbon text-offwhite font-sans">
+
+    <!-- 🌟 Header -->
+    <header>
+        <nav class="flex justify-between items-center px-8 py-5 bg-carbon border-b border-gold">
+            <div class="text-2xl font-bold text-gold tracking-wide">
+                Music Club
+            </div>
+            <ul class="flex gap-8 text-warmgray text-lg">
+                <li><a href="index.html" class="hover:text-gold transition-colors duration-300">Inicio</a></li>
+                <li><a href="albums.html" class="hover:text-gold transition-colors duration-300">Álbumes</a></li>
+                <li><a href="about.html" class="hover:text-gold transition-colors duration-300">Sobre Nosotros</a></li>
+                <li><a href="profile.html" class="text-gold">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 🌟 Perfil -->
+    <main class="flex flex-col items-center py-16 px-6">
+        <!-- Foto de perfil -->
+        <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-gold shadow-lg">
+            <img src="https://i.pravatar.cc/300?img=8" alt="Foto de perfil" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Nombre y datos -->
+        <h1 class="text-3xl md:text-4xl font-light text-gold mt-6">{{ user.username }}</h1>
+        <p class="text-warmgray text-lg mt-2">{{ user.email }}</p>
+
+        <!-- Detalles del usuario -->
+        <div class="mt-8 w-full max-w-2xl bg-[#121212] rounded-lg border border-warmgray p-6">
+            <h2 class="text-2xl font-light text-gold mb-4">Información de la cuenta</h2>
+            <div class="space-y-4">
+                <div class="flex justify-between text-warmgray">
+                    <span>Usuario:</span>
+                    <span class="font-medium text-offwhite">{{ user.username }}</span>
+                </div>
+                <div class="flex justify-between text-warmgray">
+                    <span>Email:</span>
+                    <span class="font-medium text-offwhite">{{ user.email }}</span>
+                </div>
+            </div>
+            <button class="mt-6 w-full rounded-lg border border-gold text-gold px-6 py-3 font-medium transition-colors duration-300 hover:bg-gold hover:text-carbon">
+                Editar Perfil
+            </button>
+        </div>
+    </main>
+
+    <!-- 🌟 Footer -->
+    <footer class="bg-carbon border-t border-gold text-center py-6 text-warmgray text-sm">
+        &copy; 2025 Music Club. Todos los derechos reservados.
+    </footer>
+
+</body>
+</html>

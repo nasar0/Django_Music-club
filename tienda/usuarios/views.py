@@ -39,3 +39,8 @@ def logout_view(request):
     logout(request)
     messages.success(request, '')
     return redirect('index')
+
+@login_required
+def profile_view(request):
+    user = request.user
+    return render(request, 'usuarios/perfil.html', {'user': user})
